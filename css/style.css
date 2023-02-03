@@ -208,6 +208,12 @@ footer {
     height: 150px;
     resize: none;
 }
+.form-account {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Montserrat Regular, sans-serif;
+}
 @media (max-width: 767.9px) {
     .carousel-indicators {
         display: none;

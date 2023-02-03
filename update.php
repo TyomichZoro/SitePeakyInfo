@@ -40,7 +40,7 @@
 <body>
 <section>
     <h3>Update product</h3>
-    <form action="scripts/updateProduct.php" method="post">
+    <form action="vendor/updateProduct.php" method="post">
         <input type="hidden" name="id" value="<?= $product['id'] ?>">
         <p>Title</p>
         <input type="text" name="title" value="<?= $product['title'] ?>">

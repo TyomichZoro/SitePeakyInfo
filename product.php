@@ -50,7 +50,7 @@
         <hr>
         <h2>Add comment</h2>
 
-        <form action="scripts/addComment.php" method="post">
+        <form action="vendor/addComment.php" method="post">
             <input type="hidden" name="id" value="<?= $product['id'] ?>">
             <textarea name="body"></textarea>
             <button type="submit" class="btn btn-outline-primary">Add comment</button>

@@ -62,7 +62,7 @@
                                 <button class="btn btn-outline-warning">Update</button>
                             </a>
                         </td>
-                        <td><a href="scripts/delete.php?id=<?= $item[0] ?>">
+                        <td><a href="vendor/delete.php?id=<?= $item[0] ?>">
                                 <button class="btn btn-outline-danger">Delete</button>
                             </a>
                         </td>
@@ -72,7 +72,7 @@
         ?>
     </table>
     <h3>Add new product</h3>
-    <form action="scripts/create.php" method="post">
+    <form action="vendor/create.php" method="post">
         <p>Title</p>
         <input type="text" name="title">
         <p>Description</p>
