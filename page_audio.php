@@ -22,7 +22,7 @@
 </head>
     <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand p-0" href="index.php">
                     <img src="img/logo.png" alt="Лого">
@@ -52,12 +52,19 @@
                         </li>
                         <li class="nav-item account">
                             <?php
-                            $href = 'auth.php';
-                            if ($_SESSION['user']) {
-                                $href = 'profile.php';
-                            }
+                                $user_fio = 'Аккаунт';
+                                $user_img = 'img/Account-User-PNG-Clipart.png';
+                                if ($_SESSION['user']) {
+                                    $user_fio = $_SESSION['user']['fio'];
+                                    $user_img = $_SESSION['user']['avatar'];
+                                }
+
+                                $href = 'auth.php';
+                                if ($_SESSION['user']) {
+                                    $href = 'profile.php';
+                                }
                             ?>
-                            <a class="nav-link" href="<?= $href ?>">Аккаунт</a>
+                            <a class="nav-link" href="<?= $href ?>"><?= $user_fio ?><img style="width: 2em; margin-inline: 1em" src="<?= $user_img ?>" alt="avatar"></a>
                         </li>
                     </ul>
                 </div>
@@ -67,93 +74,93 @@
     <section>
         <div class="container-fluid my-4">
             <div class="row">
-                <div class="col-lg-7 col-md-12 col-ms-12 audio-page mx-auto my-4">
+                <div class="col-lg-7 col-md-12 col-sm-12 audio-page mx-auto my-4">
                     <div class="row my-4 audio-container text-center">
-                        <div class="col-lg-5 col-md-12">
+                        <div class="col-lg-5 col-md-12 col-sm-12">
                             <p class="audio-text">
                                 Red Right Hand <br><span style="font-weight: lighter; font-size: small">Nick Cave & The Bad Seeds</span>
                             </p>
                         </div>
-                        <div class="col-lg-7 col-md-12 mt-1">
+                        <div class="col-lg-7 col-md-12 col-sm-12 mt-1">
                             <audio controls preload="metadata">
                                 <source src="audio/Nick_Cave_The_Bad_Seeds_-_Red_Right_Hand_48028321.mp3" type="audio/mpeg">
                             </audio>
                         </div>
                     </div>
                     <div class="row my-4 audio-container text-center">
-                        <div class="col-lg-5 col-md-12">
+                        <div class="col-lg-5 col-md-12 col-sm-12">
                             <p class="audio-text">
                                 Zanstra <br><span style="font-weight: lighter; font-size: small">Nick Cave, Warren Ellis</span>
                             </p>
                         </div>
-                        <div class="col-lg-7 col-md-12 mt-1">
+                        <div class="col-lg-7 col-md-12 col-sm-12 mt-1">
                             <audio controls preload="metadata">
                                 <source src="audio/nick-cave-warren-ellis-zanstra.mp3" type="audio/mpeg">
                             </audio>
                         </div>
                     </div>
                     <div class="row my-4 audio-container text-center">
-                        <div class="col-lg-5 col-md-12">
+                        <div class="col-lg-5 col-md-12 col-sm-12">
                             <p class="audio-text">
                                 Abbatoir Blues <br><span style="font-weight: lighter; font-size: small">Nick Cave & The Bad Seeds</span>
                             </p>
                         </div>
-                        <div class="col-lg-7 col-md-12 mt-1">
+                        <div class="col-lg-7 col-md-12 col-sm-12 mt-1">
                             <audio controls preload="metadata">
                                 <source src="audio/Nick_Cave_The_Bad_Seeds_-_Abbatoir_Blues_48399100.mp3" type="audio/mpeg">
                             </audio>
                         </div>
                     </div>
                     <div class="row my-4 audio-container text-center">
-                        <div class="col-lg-5 col-md-12">
+                        <div class="col-lg-5 col-md-12 col-sm-12">
                             <p class="audio-text">
                                 To Bring You My Love <br><span style="font-weight: lighter; font-size: small">PJ Harvey</span>
                             </p>
                         </div>
-                        <div class="col-lg-7 col-md-12 mt-1">
+                        <div class="col-lg-7 col-md-12 col-sm-12 mt-1">
                             <audio controls preload="metadata">
                                 <source src="audio/PJ_Harvey_-_To_Bring_You_My_Love_48014988.mp3" type="audio/mpeg">
                             </audio>
                         </div>
                     </div>
                     <div class="row my-4 audio-container text-center">
-                        <div class="col-lg-5 col-md-12">
+                        <div class="col-lg-5 col-md-12 col-sm-12">
                             <p class="audio-text">
                                 Loverman<br><span style="font-weight: lighter; font-size: small">Nick Cave & The Bad Seeds</span>
                             </p>
                         </div>
-                        <div class="col-lg-7 col-md-12 mt-1">
+                        <div class="col-lg-7 col-md-12 col-sm-12 mt-1">
                             <audio controls preload="metadata">
                                 <source src="audio/Nick_Cave_The_Bad_Seeds_-_Loverman_48028320.mp3" type="audio/mpeg">
                             </audio>
                         </div>
                     </div>
                     <div class="row my-4 audio-container text-center">
-                        <div class="col-lg-5 col-md-12">
+                        <div class="col-lg-5 col-md-12 col-sm-12">
                             <p class="audio-text">
                                 Martha's Dream <br><span style="font-weight: lighter; font-size: small">Nick Cave, Warren Ellis</span>
                             </p>
                         </div>
-                        <div class="col-lg-7 col-md-12 mt-1">
+                        <div class="col-lg-7 col-md-12 col-sm-12 mt-1">
                             <audio controls preload="metadata">
                                 <source src="audio/Nick_Cave_-_Marthas_Dream_65212494.mp3" type="audio/mpeg">
                             </audio>
                         </div>
                     </div>
                     <div class="row my-4 audio-container text-center">
-                        <div class="col-lg-5 col-md-12">
+                        <div class="col-lg-5 col-md-12 col-sm-12">
                             <p class="audio-text">
                                 You're Not God <br><span style="font-weight: lighter; font-size: small">Anna Calvi</span>
                             </p>
                         </div>
-                        <div class="col-lg-7 col-md-12 mt-1">
+                        <div class="col-lg-7 col-md-12 col-sm-12 mt-1">
                             <audio controls>
                                 <source src="audio/Anna_Calvi_-_Youre_Not_God_From_Peaky_Blinders_Original_Soundtrack_67270030.mp3" type="audio/mpeg">
                             </audio>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-12 col-ms-12 right-bar">
+                <div class="col-lg-4 col-md-12 col-sm-12 right-bar">
                     <div class="row">
                         <div class="col-lg-12">
                             <p>

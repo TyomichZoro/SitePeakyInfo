@@ -78,3 +78,22 @@ if (window.innerWidth <= 767) {
     let carouselcolor = document.querySelector('#carouselExampleIndicators');
     carouselcolor.classList.remove('carousel-dark');
 }
+
+let commentText = document.getElementsByTagName('textarea');
+let commentBtn = document.querySelector('#close-comment');
+
+for (let i = 0; i < commentText.length; i++) {
+    commentText[i].setAttribute('style', 'height:' + (commentText[i].scrollHeight) + 'px;overflow-y:hidden;');
+    commentText[i].addEventListener("input", OnInput, false);
+}
+
+function OnInput() {
+    this.style.height = 'auto';
+    this.style.height = (this.scrollHeight) + 'px';
+}
+let comment = document.querySelector('.comment-text');
+
+commentBtn.onclick = function (e) {
+    e.preventDefault();
+    comment.value = null;
+}

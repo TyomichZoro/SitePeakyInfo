@@ -4,7 +4,7 @@
     $connect = mysqli_connect('localhost', 'root', '', 'TestBD');
 
     $user_fio = 'anonimus'. time();
-    $user_img = 'img/Account-User-PNG-Clipart.png';
+    $user_img = 'img/account.jpg';
     $user_comment = $_POST['comment'];
 
     if ($_SESSION['user']) {

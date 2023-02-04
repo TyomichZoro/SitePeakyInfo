@@ -25,7 +25,7 @@
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand p-0" href="index.php">
                 <img src="img/logo.png" alt="Лого">
@@ -55,12 +55,19 @@
                     </li>
                     <li class="nav-item account">
                         <?php
-                        $href = 'auth.php';
-                        if ($_SESSION['user']) {
-                            $href = 'profile.php';
-                        }
+                            $user_fio = 'Аккаунт';
+                            $user_img = 'img/Account-User-PNG-Clipart.png';
+                            if ($_SESSION['user']) {
+                                $user_fio = $_SESSION['user']['fio'];
+                                $user_img = $_SESSION['user']['avatar'];
+                            }
+
+                            $href = 'auth.php';
+                            if ($_SESSION['user']) {
+                                $href = 'profile.php';
+                            }
                         ?>
-                        <a class="nav-link" href="<?= $href ?>">Аккаунт</a>
+                        <a class="nav-link" href="<?= $href ?>"><?= $user_fio ?><img style="width: 2em; margin-inline: 1em" src="<?= $user_img ?>" alt="avatar"></a>
                     </li>
                 </ul>
             </div>
