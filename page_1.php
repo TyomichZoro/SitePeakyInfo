@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    error_reporting(0);
+?>
 <!doctype html>
 <html lang="ru">
 <head>
@@ -9,7 +13,8 @@
           integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
           crossorigin="anonymous"
     >
-    <link rel="stylesheet" href="css/style.css" class="rel">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/account-style-form.css">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
@@ -19,7 +24,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand p-0" href="index.html">
+                <a class="navbar-brand p-0" href="index.php">
                     <img src="img/logo.png" alt="Лого">
                 </a>
                 <button class="navbar-toggler"
@@ -34,16 +39,25 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="index.html">Начальная страница</a>
+                            <a class="nav-link" aria-current="page" href="index.php">Начальная страница</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active-style" href="page_1.html">Братья Шелби</a>
+                            <a class="nav-link active-style" href="page_1.php">Братья Шелби</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="page_audio.html">OST</a>
+                            <a class="nav-link" href="page_audio.php">OST</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="page_seasons.html">Сезоны</a>
+                            <a class="nav-link" href="page_seasons.php">Сезоны</a>
+                        </li>
+                        <li class="nav-item account">
+                            <?php
+                            $href = 'auth.php';
+                            if ($_SESSION['user']) {
+                                $href = 'profile.php';
+                            }
+                            ?>
+                            <a class="nav-link" href="<?= $href ?>">Аккаунт</a>
                         </li>
                     </ul>
                 </div>
@@ -57,44 +71,44 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-6 mt-4">
                         <div class="card">
-                            <a href="page_tomas.html">
+                            <a href="page_tomas.php">
                                 <img src="https://oboi-telefon.ru/wallpapers/56499/30657.jpg" class="card-img-top" alt="Томас Шелби">
                                 <div class="card-body">
                                     <h4 class="card-title-style">Томас Шелби</h4>
-                                    <a href="page_tomas.html" class="btn btn-info">Информация</a>
+                                    <a href="page_tomas.php" class="btn btn-info">Информация</a>
                                 </div>
                             </a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 mt-4">
                         <div class="card">
-                            <a href="page_arthur.html">
+                            <a href="page_arthur.php">
                                 <img src="https://oboi-telefon.ru/wallpapers/56524/36220.jpg" class="card-img-top" alt="Артур Шелби">
                                 <div class="card-body">
                                     <h4 class="card-title-style">Артур Шелби</h4>
-                                    <a href="page_arthur.html" class="btn btn-info">Информация</a>
+                                    <a href="page_arthur.php" class="btn btn-info">Информация</a>
                                 </div>
                             </a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 mt-4">
                         <div class="card">
-                            <a href="page_john.html">
+                            <a href="page_john.php">
                                 <img src="https://oboi-telefon.ru/wallpapers/56545/30736.jpg" class="card-img-top" alt="Джон Шелби">
                                 <div class="card-body">
                                     <h4 class="card-title-style">Джон Шелби</h4>
-                                    <a href="page_john.html" class="btn btn-info">Информация</a>
+                                    <a href="page_john.php" class="btn btn-info">Информация</a>
                                 </div>
                             </a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 mt-4">
                         <div class="card">
-                            <a href="page_finn.html">
+                            <a href="page_finn.php">
                                 <img src="https://adonius.club/uploads/posts/2022-03/thumbs/1646951853_34-adonius-club-p-dzhon-shelbi-art-58.jpg" class="card-img-top" alt="Финн Шелби">
                                 <div class="card-body">
                                     <h4 class="card-title-style">Финн Шелби</h4>
-                                    <a href="page_finn.html" class="btn btn-info">Информация</a>
+                                    <a href="page_finn.php" class="btn btn-info">Информация</a>
                                 </div>
                             </a>
                         </div>

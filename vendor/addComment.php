@@ -1,10 +1,22 @@
 <?php
-    require_once '../connectBD.php';
+    session_start();
+    error_reporting(0);
+    $connect = mysqli_connect('localhost', 'root', '', 'TestBD');
 
-    $id = $_POST['id'];
-    $body = $_POST['body'];
+    $user_fio = 'anonimus'. time();
+    $user_img = 'img/Account-User-PNG-Clipart.png';
+    $user_comment = $_POST['comment'];
 
-    mysqli_query($connect, "INSERT INTO `Comments` (`id`, `product_id`, `body`) VALUES (NULL, '$id', '$body')");
+    if ($_SESSION['user']) {
+        $user_fio = $_SESSION['user']['fio'];
+        $user_img = $_SESSION['user']['avatar'];
+        $user_id = $_SESSION['user']['id'];
 
-    header('Location: ../product.php?id='.$id);
+        mysqli_query($connect, "INSERT INTO `Comments` (`id`, `user_id`, `user_fio`, `user_img`, `comment`) VALUES (NULL, '$user_id', '$user_fio', '$user_img', '$user_comment')");
+    }
+    else {
+        mysqli_query($connect, "INSERT INTO `Comments` (`id`, `user_id`, `user_fio`, `user_img`, `comment`) VALUES (NULL, NULL, '$user_fio', '$user_img', '$user_comment')");
+    }
+
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
 ?>

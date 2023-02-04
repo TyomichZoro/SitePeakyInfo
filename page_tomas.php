@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    error_reporting(0);
+?>
 <!doctype html>
 <html lang="ru">
 <head>
@@ -9,7 +13,8 @@
           integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
           crossorigin="anonymous"
     >
-    <link rel="stylesheet" href="css/style.css" class="rel">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/account-style-form.css">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
@@ -19,7 +24,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand p-0" href="index.html">
+                <a class="navbar-brand p-0" href="index.php">
                     <img src="img/logo.png" alt="Лого">
                 </a>
                 <button class="navbar-toggler"
@@ -34,16 +39,25 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="index.html">Начальная страница</a>
+                            <a class="nav-link" aria-current="page" href="index.php">Начальная страница</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="page_1.html">Братья Шелби</a>
+                            <a class="nav-link" href="page_1.php">Братья Шелби</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="page_audio.html">OST</a>
+                            <a class="nav-link" href="page_audio.php">OST</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="page_seasons.html">Сезоны</a>
+                            <a class="nav-link" href="page_seasons.php">Сезоны</a>
+                        </li>
+                        <li class="nav-item account">
+                            <?php
+                            $href = 'auth.php';
+                            if ($_SESSION['user']) {
+                                $href = 'profile.php';
+                            }
+                            ?>
+                            <a class="nav-link" href="<?= $href ?>">Аккаунт</a>
                         </li>
                     </ul>
                 </div>
@@ -100,5 +114,6 @@
             integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
             crossorigin="anonymous">
     </script>
+    <script src="js/profile-script.js"></script>
     </body>
 </html>

@@ -1,7 +1,7 @@
 <?php
     session_start();
     error_reporting(0);
-    require_once '../connectBD.php';
+    $connect = mysqli_connect('localhost', 'root', '', 'TestBD');
 
     $fio = $_POST['fio'];
     $login = $_POST['login'];
@@ -21,7 +21,7 @@
         mysqli_query($connect, "INSERT INTO `users` (`id`, `fio`, `login`, `email`, `password`, `avatar`) VALUES (NULL, '$fio', '$login', '$email', '$password', '$path')");
 
         $_SESSION['message'] = 'Регистрация прошла успешна';
-        header('Location: ../account.php');
+        header('Location: ../profile.php');
     }
     else {
         $_SESSION['message'] = 'Пароли не совпадают';

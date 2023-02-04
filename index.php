@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    error_reporting(0);
+?>
 <!doctype html>
 <html lang="ru">
 <head>
@@ -9,7 +13,8 @@
           integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
           crossorigin="anonymous"
     >
-    <link rel="stylesheet" href="css/style.css" class="rel">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/account-style-form.css">
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
@@ -19,7 +24,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand p-0" href="index.html">
+                <a class="navbar-brand p-0" href="index.php">
                     <img src="img/logo.png" alt="Лого">
                 </a>
                 <button class="navbar-toggler"
@@ -34,19 +39,25 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active-style" aria-current="page" href="index.html">Начальная страница</a>
+                            <a class="nav-link active-style" aria-current="page" href="index.php">Начальная страница</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="page_1.html">Братья Шелби</a>
+                            <a class="nav-link" href="page_1.php">Братья Шелби</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="page_audio.html">OST</a>
+                            <a class="nav-link" href="page_audio.php">OST</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="page_seasons.html">Сезоны</a>
+                            <a class="nav-link" href="page_seasons.php">Сезоны</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="account.php">Аккаунт</a>
+                        <li class="nav-item account">
+                            <?php
+                                $href = 'auth.php';
+                                if ($_SESSION['user']) {
+                                    $href = 'profile.php';
+                                }
+                            ?>
+                            <a class="nav-link" href="<?= $href ?>">Аккаунт</a>
                         </li>
                     </ul>
                 </div>
@@ -212,6 +223,38 @@
                             Когда Стивена Найта спросили, какие фильмы вдохновили его на написание сценария, он признался, что это были больше американские вестерны, чем гангстерские фильмы. Британская версия ковбойских историй — это легенды о рыцарях, но у британцев нет традиции снимать кино о рыцарях, как у американцев, напротив, есть традиция снимать фильмы о ковбоях.
                         </p>
                     </div>
+                </div>
+            </div>
+            <h3 class="comment-h">Комментарии</h3>
+            <div class="col-lg-12 col-md-12 col-sm-11 comment-container">
+                <div class="col-lg-8 col-md-12 com-ms-12">
+
+                    <?php
+                        $connect = mysqli_connect('localhost', 'root', '', 'TestBD');
+                        $comments = mysqli_query($connect, "SELECT * FROM `Comments`");
+                        $comments = mysqli_fetch_all($comments);
+                    ?>
+
+                    <form action="vendor/addComment.php" class="comment-add my-3" id="comment-form" method="post">
+                        <textarea class="comment-text" name="comment" required></textarea>
+                        <div class="comment-btn">
+                            <button class="btn btn-outline-success" type="submit">Оставить комментарий</button>
+                            <button class="btn btn-outline-danger">Отмена</button>
+                        </div>
+                    </form>
+                </div>
+                <?php
+                    foreach ($comments as $item) {
+                        ?>
+                            <div class="comment-body">
+                                <span style="font-weight: lighter"><?= $item[2] ?></span>
+                                <img src="<?= $item[3] ?>" style="width: 40px" alt="avatar">
+                                <p><?= $item[4] ?></p>
+                            </div>
+                        <?php
+
+                    }
+                ?>
                 </div>
             </div>
         </div>

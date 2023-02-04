@@ -208,11 +208,29 @@ footer {
     height: 150px;
     resize: none;
 }
-.form-account {
+.comment-container {
+    border-radius: 5px;
+    background-color: #EFF3F9;
+    border: 1px solid lightgrey;
+}
+.comment-h {
+    padding: .5em;
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-family: Montserrat Regular, sans-serif;
+    font-weight: bold;
+}
+.comment-container p {
+    padding-inline: 1em;
+    padding-top: .6em;
+    border-bottom: .5px solid lightgrey;
+}
+.comment-btn {
+    display: flex;
+    justify-content: right;
+}
+.comment-text {
+    border: 3px solid lightgrey;
+    border-radius: 5px;
 }
 @media (max-width: 767.9px) {
     .carousel-indicators {
