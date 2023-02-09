@@ -5,9 +5,6 @@ let button = document.querySelector('#nikita-btn');
 let modals = document.querySelectorAll('.fade-block');
 let closeBtn = document.querySelectorAll('.close-btn');
 
-let carousel = document.querySelector('.carousel-indicators');
-let controls = document.querySelector('.btn-carousel');
-
 text.hidden = true;
 
 button.onclick = function () {
@@ -27,8 +24,6 @@ button.onclick = function () {
 }
 
 function BackValue() {
-    carousel.classList.remove('hidden');
-    controls.classList.remove('hidden')
     text.hidden = true;
     button.textContent = 'Доп информация';
     text.value = null;
@@ -48,8 +43,6 @@ function Check(IDtext, IDbtn) {
         }
     }
 
-    carousel.classList.add('hidden');
-    controls.classList.add('hidden')
     modal.classList.remove('hidden');
 
     let success = document.querySelector('.success-btn');
@@ -72,11 +65,6 @@ function Check(IDtext, IDbtn) {
     modal.querySelector('.modal-window').addEventListener('click', function (e) {
         e.stopPropagation();
     })
-}
-
-if (window.innerWidth <= 767) {
-    let carouselcolor = document.querySelector('#carouselExampleIndicators');
-    carouselcolor.classList.remove('carousel-dark');
 }
 
 let commentText = document.getElementsByTagName('textarea');

@@ -1,0 +1,161 @@
+@font-face {
+    font-family: 'Montserrat Regular';
+    src: url('../fonts/montserrat_regular.eot'); /* IE 9 Compatibility Mode */
+    src: url('../fonts/montserrat_regular.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+    url('../fonts/montserrat_regular.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../fonts/montserrat_regular.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+    url('../fonts/montserrat_regular.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('../fonts/montserrat_regular.svg#montserrat_regular') format('svg'); /* Chrome < 4, Legacy iOS */
+}
+html {
+    height: 100%;
+}
+body {
+    margin-top: 5em;
+    font-family: Montserrat Regular, sans-serif;
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    background-color: black;
+}
+p {
+    color: black;
+    font-size: 16px;
+    margin-top: .5em;
+}
+li {
+    color: black;
+    font-size: 16px;
+    margin-left: 2em;
+}
+/*Навигация*/
+.navbar {
+    border-bottom: 2px solid #f9ff02;
+    background-color: #0e0e0e;
+}
+.navbar-brand img {
+    width: 90px;
+}
+.nav-item {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+}
+.nav-link {
+    padding-bottom: 0;
+    color: ghostwhite;
+}
+.nav-link:hover {
+    transition: 0.1s ease;
+    color: lightgrey;
+    border-bottom: 2px solid #f9ff02;
+}
+.active-style {
+    color: lightgrey;
+}
+.logo-style {
+    width: 1.5em;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-inline: 1em;
+}
+/*Footer*/
+footer {
+    background-color: #0e0e0e;
+    font-weight: bold;
+    border-top: 2px solid #f9ff02;
+}
+footer p {
+    color: ghostwhite;
+}
+.footer-body {
+    display: flex;
+    justify-content: center;
+}
+.footer-text {
+    display: flex;
+    justify-content: center;
+    padding-inline: 1em;
+}
+/*Контейнеры*/
+.main-container {
+    padding: 1em;
+    border-bottom: 1px solid lightgrey;
+    border-right: 1px solid lightgrey;
+}
+.right-bar {
+    padding: 1em;
+    border-bottom: 1px solid lightgrey;
+}
+/*Регистрация и авторизация, профиль*/
+.form-reg-auth {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-inline: auto;
+    width: 94%;
+    margin-top: 1em;
+    margin-bottom: 25%;
+    background-color: #EFF3F9;
+    border: 2px solid lightgrey;
+    border-radius: 5px;
+}
+.form-reg-auth p, input, button, label, a {
+    margin-inline: 1em;
+    margin-top: .5em;
+    margin-bottom: .5em;
+}
+.form-reg-auth a {
+    color: #7c9ab7;
+    font-weight: bold;
+    text-decoration: none;
+}
+.form-reg-auth input {
+    padding: .2em;
+    background: none;
+    border: unset;
+    border-bottom: 2px solid #e3e3e3;
+    outline: none;
+}
+.form-reg-auth label {
+    font-weight: bold;
+}
+.form-reg-auth button {
+    margin-inline: auto;
+    width: auto;
+}
+.msg {
+    justify-content: center;
+    border: 2px solid #ffa908;
+    border-radius: 5px;
+    padding: .5em;
+    text-align: center;
+    font-weight: bold;
+}
+.logout {
+    color: #b7625c;
+}
+/*Прочее*/
+.h-style {
+    color: black;
+    font-weight: bold;
+    text-align: center;
+}
+.hidden {
+    display: none;
+}
+
+
+@media (min-width: 992px) {
+    .navbar {
+        height: 3em;
+    }
+    body {
+        margin-top: 3em;
+    }
+}
+@media (min-width: 769px) {
+    .form-reg-auth {
+        width: 60%;
+    }
+}

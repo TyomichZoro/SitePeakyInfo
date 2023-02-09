@@ -1,0 +1,30 @@
+/*Гриды*/
+.profile-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+/*Профиль*/
+.profile-container {
+    margin-top: 2em;
+    margin-bottom: 25%;
+    margin-inline: auto;
+    width: 94%;
+    background-color: #EFF3F9;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+.profile-info {
+    display: grid;
+    margin-inline: auto;
+    padding: 1em;
+}
+.profile-info img {
+    width: 50%;
+}
+.profile-info h2 {
+    width: 50%;
+}
+.profile-info .btn {
+    margin-inline: auto;
+    width: 40%;
+}

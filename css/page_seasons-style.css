@@ -1,0 +1,53 @@
+/*Гриды*/
+.page_seasons-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 1em 1em 1em 1em;
+    border-radius: 5px;
+    background-color: #EFF3F9;
+}
+/*seasons-page*/
+.season-text {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    border-bottom: 1px solid lightgrey;
+}
+.season-left-bar {
+    text-align: center;
+    margin-inline: auto;
+}
+.season-left-bar img {
+    border-radius: 5px;
+    width: 96%;
+    margin-inline: auto;
+    padding: .5em;
+}
+.season-right-bar {
+    text-align: center;
+    margin-inline: auto;
+    padding: .5em;
+}
+.season-title {
+    font-size: 32px;
+    cursor: pointer;
+}
+.border-season-title {
+    border-bottom: 1px solid lightgrey;
+}
+.season-right-bar h4 {
+    color: black;
+    font-weight: bold;
+}
+.hidden {
+    display: none;
+}
+
+
+@media (max-width: 617px) {
+    .season-text {
+        grid-template-columns: 1fr;
+    }
+    .season-text img {
+        width: 80%;
+    }
+}

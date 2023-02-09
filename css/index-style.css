@@ -1,0 +1,133 @@
+/*Гриды*/
+.index-grid {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    margin: 1em 1em 1em 1em;
+    border-radius: 5px;
+    background-color: #EFF3F9;
+}
+.index-grid > div:nth-child(3) {
+    grid-column-start: 1;
+    grid-column-end: -1;
+}
+/*Модалки*/
+.modal-window {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #EFF3F9;
+    border-radius: 5px;
+}
+.modal-header {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: #e6e3e3;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+.modal-header h3 {
+    font-weight: bold;
+    margin-top: .5em;
+    margin-bottom: .5em;
+}
+.modal-body {
+    padding-inline: .5em;
+}
+.modal-footer {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: .5em;
+}
+.modal-footer .btn {
+    margin-inline: 1em;
+    padding: .5em;
+}
+.fade-block {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+/*Комментарии*/
+.comment-container {
+    margin-inline: 1em;
+}
+.comment-h {
+    padding: .5em;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
+.comment-container p {
+    padding-inline: 1em;
+    padding-top: .6em;
+    border-bottom: .5px solid lightgrey;
+}
+.comment-btn {
+    margin-top: 0;
+    margin-bottom: 2em;
+    margin-inline: auto;
+}
+.comment-add {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-content: center;
+}
+.comment-text {
+    resize: none;
+    width: 60%;
+    margin-bottom: .5em;
+    margin-inline: auto;
+    border: 2px solid grey;
+    border-radius: 5px;
+}
+.comment-body {
+    margin-inline: 1.5em;
+}
+.comment-body img {
+    align-items: center;
+}
+.comment-body p {
+    padding: .5em;
+}
+/*Прочее*/
+.index-form-container {
+    display: grid;
+    margin-inline: auto;
+}
+.main-index-img {
+    display: table;
+    margin: 0 auto;
+    width: 100%;
+}
+
+
+@media (max-width: 768px) {
+    .index-grid {
+        grid-template-columns: 1fr;
+    }
+    .modal-window {
+        width: 80%;
+    }
+}
+@media (min-width: 551px) {
+    .index-form-container {
+        width: 50%;
+    }
+}
+@media (max-width: 463px) {
+    .comment-add textarea{
+        width: 90%;
+    }
+    .comment-add .btn {
+        display: grid;
+        align-content: center;
+        width: 100%;
+        margin-inline: auto;
+    }
+}
